@@ -1,0 +1,32 @@
+angular/.angular
+angular/node_modules
+angular/dist
+angular/package-lock.json
+angular/.vscode
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Flask instance/config files
+instance/
+*.env
+*.env.*
+
+# IDE/editor
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Test/coverage
+htmlcov/
+.coverage
+.tox/
+.pytest_cache/

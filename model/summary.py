@@ -8,6 +8,19 @@ class Summary:
         self.recommendation = recommendation
         self.gender = gender
 
+    # unlike java, python does support multiple constructors
+    @classmethod
+    def from_dict(cls, data):
+        return cls(
+            id=data.get('id'),
+            student=data.get('student'),
+            status=data.get('status'),
+            made_a_difference=data.get('made_a_difference'),
+            covered_value=data.get('covered_value'),
+            recommendation=data.get('recommendation'),
+            gender=data.get('gender')
+        )
+
     def to_dict(self):
         return {
             'id': self.id,

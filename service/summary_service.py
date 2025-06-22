@@ -1,4 +1,6 @@
 from dao.summary_dao import SummaryDao
+from model.summary import Summary
+
 
 class SummaryService:
     def __init__(self):
@@ -23,16 +25,17 @@ class WriterCommentService:
         result = ''
 
         for summary in summarys:
-
             if summary:
+                summary_model = Summary.from_dict(summary)
+
                 result += f"""
-                        On a scale from 1-3, {summary.student} confidence level with the material was at a {summary.status} at the beginning of the session.
+                        On a scale from 1-3, {summary_model.student} confidence level with the material was at a {summary_model.status} at the beginning of the session.
 
-                        In the session we worked on finding {summary.covered_value}.
+                        In the session we worked on finding {summary_model.covered_value}.
 
-                        After the session {summary.student} said {summary.gender} was feeling more confident with the material then prior.
+                        After the session {summary_model.student} said {"he" if summary_model.gender == "M" else "she" } was feeling more confident with the material then prior.
 
-                        Recommendations: {summary.recommendation}.
+                        Recommendations: {summary_model.recommendation}.
 
                         """
         return result

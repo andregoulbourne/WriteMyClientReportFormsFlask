@@ -1,7 +1,5 @@
 from flask import Blueprint, jsonify, request
 
-import json
-
 from util import constants
 
 from controller import summary_controller
@@ -36,7 +34,6 @@ def delete_summary():
 def write_comment():
     summarys = request.get_json()
     if summarys:
-        summarys = json.loads(summarys)
         result = controller.writer_comment(summarys)
         return jsonify({constants.DATA: result, constants.MSG: constants.SUCCESS})
     else:

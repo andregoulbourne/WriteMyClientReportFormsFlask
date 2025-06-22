@@ -8,11 +8,9 @@
   [rowData]="rowData"
   [columnDefs]="colDef"
   (cellValueChanged)="updateSummary($event)"
+  [rowSelection]="'multiple'"
 >
 </ag-grid-angular>
-<!--rowSelection="multiple"
-enable mutliple selections
--->
 
 
 <p>{{tutorComment}}</p>

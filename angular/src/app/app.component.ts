@@ -41,7 +41,7 @@ export class AppComponent {
 
     this._http.post<any>('http://localhost:8081/summarys/writeAComment.do', selectedData/*JSON.stringify(selectedData),  {headers: {'Content-Type':'application/json'}}*/)
     .subscribe((data) => {
-      this.tutorComment= data.comment;
+      this.tutorComment= data.data;
     });
   }
 

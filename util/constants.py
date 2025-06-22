@@ -14,3 +14,12 @@ ERROR = "ERROR"
 DATA = "data"
 MSG = "msg"
 STATUS = "status"
+
+# Summary Fields
+STUDENT_NAME = "student_name"
+STATUS_FIELD = "status"
+MADE_A_DIFFERENCE = "made_a_difference"
+COVERED_VALUE = "covered_value"
+RECOMMENDATION = "recommendation"
+GENDER = "gender"
+ID = "id"

@@ -64,7 +64,7 @@ export class AppComponent {
 
   addDefaultInitializedSummary(){
 	console.log("Adding Default Summary ...")
-	const summary = {id: this.getMaxIdNumber()+1, student: '', status: '', madeADifference: true, coveredValue: '', recomendation: '', gender:'F'};
+	const summary = {id: this.getMaxIdNumber()+1, student: '', status: '', made_a_difference: true, covered_value: '',recommendation: '', gender:'F'};
 
 	this._http.post<any>('http://localhost:8081/summarys',summary)
       .subscribe((data)=>{

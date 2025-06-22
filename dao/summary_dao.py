@@ -43,12 +43,12 @@ class SummaryDao:
 
         for i, row in enumerate(rows):
             if row['ID'] == summary['id']:
-                rows[i] = summary
+                rows[i] = self._summary_dict_to_csv_dict(summary)
                 updated = True
                 break
 
         if not updated:
-            rows.append(summary)
+            rows.append(self._summary_dict_to_csv_dict(summary))
 
         return FileUtil.write_csv(self.file_path, rows)
 
@@ -92,4 +92,19 @@ class SummaryDao:
             'COVERED_VALUE': summary.covered_value,
             'RECOMMENDATION': summary.recommendation,
             'GENDER': summary.gender
+        }
+
+    # Converts a summary dictionary to a CSV dictionary.
+    def _summary_dict_to_csv_dict(self, summary):
+        """
+        Converts a summary dictionary to a CSV dictionary.
+        """
+        return {
+            'ID': summary['id'],
+            'STUDENT_NAME': summary['student'],
+            'STATUS': summary['status'],
+            'MADE_A_DIFFERENCE': summary['made_a_difference'],
+            'COVERED_VALUE': summary['covered_value'],
+            'RECOMMENDATION': summary['recommendation'],
+            'GENDER': summary['gender'],
         }

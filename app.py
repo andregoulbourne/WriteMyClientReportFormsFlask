@@ -4,7 +4,7 @@ from flask_cors import CORS
 from util.flask_helper_util import FlaskHelperUtil
 
 app = Flask(__name__, template_folder="static")
-CORS(app, origins=["http://localhost:4200", "https://127.0.0.1:8081", "https://localhost:8081"])
+CORS(app, origins=["http://localhost:4200", "http://127.0.0.1:8081", "http://localhost:8081"])
 from route.summary_route import summary_bp
 app.register_blueprint(summary_bp)
 

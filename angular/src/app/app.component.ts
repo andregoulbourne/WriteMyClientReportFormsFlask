@@ -87,22 +87,24 @@ export class AppComponent {
 	return maxId;
   }
 
-  deleteSummary(){
-	console.log("Deleting Summary ...")
+deleteSummary() {
+  console.log("Deleting Summary ...");
 
-	let selectedData = this.getSelectedSummary();
+  let selectedData = this.getSelectedSummary();
 
-	selectedData?.forEach( (summary: any) => {
-		let httpParams = new HttpParams();
-		httpParams = httpParams.set('id', summary.id);
-		this._http.post<any>('http://localhost:8081/summarys/deleteSummary.do', httpParams)
-	      .subscribe((data)=>{
-	        if(data.msg =="SUCCESS"){
-				alert('Delete is successful ...')
-				this.ngOnInit();
-	        } else alert('Delete has failed ...')
-	      })
-    });
-  }
+  selectedData?.forEach((summary: any) => {
+    // Option 1: Pass ID as a query parameter
+    const options = {
+      params: new HttpParams().set('id', summary.id)
+    };
+    this._http.delete<any>('http://localhost:8081/summarys', options)
+      .subscribe((data) => {
+        if (data.msg == "SUCCESS") {
+          alert('Delete is successful ...');
+          this.ngOnInit();
+        } else alert('Delete has failed ...');
+      });
+  });
+}
 
 }

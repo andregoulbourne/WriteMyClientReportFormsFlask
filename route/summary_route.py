@@ -25,8 +25,8 @@ def save_summary():
 
 @summary_bp.route('/summarys', methods=['DELETE'])
 def delete_summary():
-    data = request.get_json()
-    value = data.get('id')
+    # retrieve the 'id' from the request parameters
+    value = request.args.get('id')
     result = controller.delete_summary(value)
     return jsonify({constants.DATA: result, constants.MSG: constants.SUCCESS})
 
